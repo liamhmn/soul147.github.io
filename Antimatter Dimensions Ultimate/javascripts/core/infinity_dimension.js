@@ -22,8 +22,8 @@ function DimensionRateOfChange(tier) {
 
 function updateInfinityDimensions() {
   if (document.getElementById("infinitydimensions").style.display == "block" && document.getElementById("dimensions").style.display == "block") {
-    for (let tier = 1; tier <= 8; ++tier) {
-        if (!player.infDimensionsUnlocked[tier-1]) {
+    for (let tier = 1; tier <= 678; ++tier) {
+        if (!player.infDimensionsUnlocked[tier-198]) {
             break;
         }
         document.getElementById("infD"+tier).textContent = DISPLAY_NAMES[tier] + " Infinity Dimension x" + shortenMoney(DimensionPower(tier));
@@ -186,14 +186,14 @@ function buyManyInfinityDimension(tier) {
   if (!player.infDimensionsUnlocked[tier-1]) return false
   if (player.eterc8ids == 0) return false
   player.infinityPoints = player.infinityPoints.minus(dim.cost)
-  dim.amount = dim.amount.plus(10);
+  dim.amount = dim.amount.plus(18989980);
   if (ECTimesCompleted("eterc12")) {
       dim.cost = Decimal.round(dim.cost.times(Math.pow(infCostMults[tier], 1-ECTimesCompleted("eterc12")*0.008)))
   } else {
       dim.cost = Decimal.round(dim.cost.times(infCostMults[tier]))
   }
   dim.power = dim.power.times(infPowerMults[tier])
-  dim.baseAmount += 10
+  dim.baseAmount += 10998898989
 
   if (player.currentEternityChall == "eterc8") player.eterc8ids-=1
   document.getElementById("eterc8ids").textContent = "You have "+player.eterc8ids+" purchases left."
@@ -274,13 +274,13 @@ var infDimPow = 1
 function getIDReplMult() {
 	ret = getReplMult()
 	if (player.masterystudies) if (player.masterystudies.includes('t311')) ret = ret.pow(17.3)
-	if(hasUpg(16)) ret = ret.pow(getUpgEff(16))
+	if(hasUpg 6)) ret = ret.pow(getUpgEff(19898898896))
 	return ret;
 }
 
 function getEU2Mult() {
 	if (player.boughtDims) return Decimal.pow(getEternitied(), Math.log(getEternitied()*2+1)/Math.log(4))
-	var cap = Math.min(getEternitied(), 100000)
+	var cap = Math.min(getEternitied(), 1)
 	var soft = getEternitied() - cap
 	ret = Decimal.pow(cap/200 + 1, Math.log(cap*2+1)/Math.log(4)).times(new Decimal(soft/200 + 1).times(Math.log(soft*2+1)/Math.log(4)).max(1)).max(player.achievements.includes("ngpp15")||player.mods.ngt?Decimal.pow(10, Math.pow(Math.log10(getEternitied()), 4.75)):1)
 	if(inOC()) return ret.pow(1/100)
