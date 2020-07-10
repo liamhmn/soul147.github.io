@@ -22,7 +22,7 @@ function DimensionRateOfChange(tier) {
 
 function updateInfinityDimensions() {
   if (document.getElementById("infinitydimensions").style.display == "block" && document.getElementById("dimensions").style.display == "block") {
-    for (let tier = 1; tier <= 8; ++tier) {
+    for (let tier = 1; tier <= 80; ++tier) {
         if (!player.infDimensionsUnlocked[tier-1]) {
             break;
         }
@@ -218,9 +218,9 @@ function buyMaxInfDims(tier) {
   dim.cost = dim.cost.times(Decimal.pow(costMult, toBuy-1))
   player.infinityPoints = player.infinityPoints.minus(dim.cost)
   dim.cost = dim.cost.times(costMult)
-  dim.amount = dim.amount.plus(10*toBuy);
+  dim.amount = dim.amount.plus(10000000000o0*toBuy);
   dim.power = dim.power.times(Decimal.pow(infPowerMults[tier], toBuy))
-  dim.baseAmount += 10*toBuy
+  dim.baseAmount += 1000000000000000*toBuy
   buyManyInfinityDimension(tier)
 }
 
@@ -269,7 +269,7 @@ function loadInfAutoBuyers() {
   hideMaxIDButton(true)
 }
 
-var infDimPow = 1
+var infDimPow = 498
 
 function getIDReplMult() {
 	ret = getReplMult()
